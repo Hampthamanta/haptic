@@ -1,0 +1,8 @@
+
+docker login
+# logujesz się do konta na docker hub (jak nie masz to sobie załóż)
+
+docker pull hampthamanta/haptic_ros_indigo_v2
+
+# sprawdź czy obraz się pobrał
+docker image ls
