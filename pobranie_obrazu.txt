@@ -1,7 +1,11 @@
 
-docker login
-# logujesz się do konta na docker hub (jak nie masz to sobie załóż)
+# dockera trzeba zainstalować, bo nie ma go domyślnie na ubuntu
+# poszukacj komend do teminala jak to instalować
 
+# logujesz się do konta na docker hub (jak nie masz to sobie załóż)
+docker login
+
+# pobranie obrazu
 docker pull hampthamanta/haptic_ros_indigo_v2
 
 # sprawdź czy obraz się pobrał
