@@ -1,0 +1,82 @@
+
+=================================================================================================
+Gdy masz już pobrany obraz i jest on widoczny w "docker image ls" można to uruchomić
+-------------------------------------------------------------------------------------------------
+PO OTWORZENIU KAŻDEGO NOWEGO OKNA TERMINALA TRZEBA W NIM WPISAĆ TĄ KOMENDĘ (zezwolenie na GUI)
+---------------------------------------------
+sudo xhost +localhost && sudo xhost +local:root
+
+
+
+=================================================================================================
+PIERWSZE URUCHOMIENIE OBRAZU
+---------------------------------------------
+docker run -it --privileged --device=/dev/bus/usb/003/024 --name="haptic_ros_indigo_v2" --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" haptic_ros_indigo_v2 rqt
+
+
+
+=================================================================================================
+KOLEJNE URUCHOMIENA OBRAZU
+---------------------------------------------
+docker start haptic_ros_indigo_v2
+
+
+=================================================================================================
+Pobrane obrazy i te później utworzone są widoczne w:
+---------------------------------------------
+docker image ls
+
+
+=================================================================================================
+Raz uruchomiony obraz staje się kontenerem
+---------------------------------------------
+# aktywne kontenery
+docker ps
+# wszystkie kontenery
+docker ps -a
+
+
+=================================================================================================
+URUCHOMIENIE KONTENERA W TERMINALU
+---------------------------------------------
+sudo xhost +localhost && sudo xhost +local:root
+docker exec -it haptic_ros_indigo_v2 bash
+
+
+
+
+=================================================================================================
+Aktywacja rosa i paczek (ZA KAŻDYM RAZEM W NOWYM TERMINALU)
+---------------------------------------------
+source /opt/ros/indigo/setup.bash && cd ~/catkin_ws/ && source ./devel/setup.bash
+
+
+
+
+=================================================================================================
+PO KAŻDEJ EDYCJI PLIKÓW/SKRYPTÓW TRZEBA ZBUDOWAĆ WORKSPACE ROSA	
+---------------------------------------------
+cd ~/catkin_ws
+catkin_make
+
+
+
+=================================================================================================
+Komendy na sprawdzenie czy działa przekazanie portów usb do dockera
+---------------------------------------------
+lsusb		# apt-get install -y usbutils
+
+
+
+=================================================================================================
+aktywacja klucza ubuntu do aktualizacji pakietów
+---------------------------------------------
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F42ED6FBAB17C654
+
+
+
+=================================================================================================
+...
+---------------------------------------------
+
+
